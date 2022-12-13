@@ -1,0 +1,25 @@
+{% extends "theme.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <main class="tm-main">
+        <!-- Search form -->
+        <div class="row tm-row">
+            <div class="col-12">
+                <h1>Make your post</h1>
+            </div>                
+        </div>            
+        <div class="row tm-row">
+            <article class="col-12 col-md-6 tm-post">
+                <hr class="tm-hr-primary">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                        </form>
+                        <hr>
+            </article>
+            </div>
+        {% endblock content %}
